@@ -8,7 +8,7 @@ const CountryCard = ({ country }) => {
 
 
   return (
-    <Link to={`/:23`} className="p-4 bg-slate-500 max-w-[320px] mx-auto rounded-xl">
+    <Link to={`/:${country.name.common}`} className="p-4 bg-slate-500 max-w-[320px] mx-auto rounded-xl">
      
         <img className="aspect-[2/1] w-full object-cover" src={country.flags.png} alt="" />
       

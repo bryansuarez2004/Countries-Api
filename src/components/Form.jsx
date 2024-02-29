@@ -1,6 +1,6 @@
 import { FaSearch } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { filterCountriesByNameAndRegion } from "../store/slices/app.slice";
+import { changeCurrentPage, filterCountriesByNameAndRegion } from "../store/slices/app.slice";
 import { useForm } from "react-hook-form";
 
 const Form = () => {
@@ -10,6 +10,8 @@ const Form = () => {
   const handleSearch = (e) => {
     console.log(watch());
     dispatch(filterCountriesByNameAndRegion(watch()));
+    dispatch(changeCurrentPage(1))
+    //seteando la current page a 1 cada vez que se haga una busqueda y filtrado, ademas se hace aqui porque si se hace en app se vuelve a renderizar ese componente al volver a la pagina principal y se seteara a 1, se perdera el valor anterior del estado global 
   };
 
 
