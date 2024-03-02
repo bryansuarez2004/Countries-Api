@@ -9,15 +9,15 @@ import Navbar from "./components/Navbar.jsx";
 import PageCountry from "./components/PageCountry.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+ 
     <Provider store={store}>
       <BrowserRouter>
         <Navbar />
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/:id" element={<PageCountry/>} />
+          <Route path="/:name" element={<PageCountry/>} />
         </Routes>
       </BrowserRouter>
     </Provider>
-  </React.StrictMode>
+ 
 );

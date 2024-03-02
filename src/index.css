@@ -2,7 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-
+*{
+    transition-property: background-color,box-shadow;
+    transition-duration: .5s;
+}
 body{
     background-color: #fffbeb;
+    
+}
+
+.dark body {
+    background-color: #082f49;
 }

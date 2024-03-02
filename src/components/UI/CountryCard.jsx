@@ -8,9 +8,9 @@ const CountryCard = ({ country }) => {
 
 
   return (
-    <Link to={`/:${country.name.common}`} className="p-4 bg-slate-500 max-w-[320px] mx-auto rounded-xl">
+    <Link to={`/${country.name.common}`} className="p-4 dark:bg-cyan-800 dark:text-white bg-slate-500 max-w-[320px] mx-auto rounded-xl hover:scale-[.9] transition-transform duration-500">
      
-        <img className="aspect-[2/1] w-full object-cover" src={country.flags.png} alt="" />
+        <img className="aspect-[2/1] w-full object-cover " src={country.flags.png} alt="" />
       
       <div className="p-3 grid gap-2">
         <h2 className="justify-self-center">{country.name.common}</h2>

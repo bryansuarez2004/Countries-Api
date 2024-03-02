@@ -11,8 +11,6 @@ import SinglePage from "./UI/SinglePage";
 
 
 
-
-
 const CountriesList = () => {
   const dispatch = useDispatch();
   const { countriesToShow, currentPage } = useSelector((store) => store.app);
@@ -23,18 +21,25 @@ const CountriesList = () => {
   );
 
   useEffect(() => {
-    const thereIsLastSearch = sessionStorage.getItem("busquedaAnterior");
-     console.log('segundo');
-    if (!thereIsLastSearch) {
-      dispatch(getAllCountriesThunk());
-    }
+    // const thereIsLastSearch = sessionStorage.getItem("busquedaAnterior");
+    //  if(thereIsLastSearch){
+    //   console.log('hay en la sesion');
+    //  }
+    // if (!thereIsLastSearch) {
+    //   dispatch(getAllCountriesThunk());
+    //   console.log('es false');
+      
+    // }
 
-    return () => {
-      sessionStorage.removeItem("busquedaAnterior");
-      sessionStorage.setItem('queso', 'true');
-       console.log('eliminar de la sesion');
-    };
+      // la forma mas sencilla de resolverlo, cada vez que se recarga la pagina, los estados globales se reinician, entonces aca solo verificas, si el estado global se reinicio, pides denuevo, si no se reinicio, entonces no haces nada dejando que tenga su valor almacenado, y se reiniciara cada vez que se recarge la pagina y su valor sera el valor inicial que le pones en initial state 
+    if(countriesToShow.length === 0 ){
+      dispatch(getAllCountriesThunk());
+
+    }
+    
   }, []);
+  // sessionStorage.removeItem("busquedaAnterior");
+
   //axios.get('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=es&dt=t&q=hello,how are you')
   // endpoint que traduce, averiguar posteriormente
  
@@ -46,7 +51,7 @@ const CountriesList = () => {
           return <CountryCard key={country.name.common} country={country} />;
         })}
       </div>
-      <div>
+      <div className="flex gap-2  mx-auto p-5 flex-wrap justify-center">
         {arrayOfPages.map((page) => {
           return <SinglePage key={page} page={page} />;
         })}

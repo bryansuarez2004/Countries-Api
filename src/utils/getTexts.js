@@ -11,4 +11,21 @@ function getCapitalText (arrayOfCapitals) {
    return text
 }
 
-export {getCapitalText}
+function getLanguagesText (objectToConcat) {
+   
+ let textLang= ''
+  if(objectToConcat){
+     let array = []
+     for (const key in objectToConcat) {
+          array.push(objectToConcat[key])
+     }
+     textLang = array.join(', ')
+  }else{
+   textLang =  'no language'
+  }
+
+  return textLang
+}
+
+export {getCapitalText,
+   getLanguagesText}
