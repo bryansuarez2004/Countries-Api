@@ -1,6 +1,6 @@
-function pagination (currentPage, countriesToShow){
+function pagination (currentPage, countriesToShow,countriesPerPage){
    
-   const COUNTRIES_BY_PAGE = 20
+   const COUNTRIES_BY_PAGE = countriesPerPage
     const slice_end = COUNTRIES_BY_PAGE * currentPage
     const slice_start = slice_end - COUNTRIES_BY_PAGE
   

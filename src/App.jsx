@@ -18,6 +18,7 @@ useEffect(()=>{
     document.documentElement.classList.remove('dark')
 
   }
+  
   // document.documentElement.classList.toggle('dark')
 },[darkMode])
 

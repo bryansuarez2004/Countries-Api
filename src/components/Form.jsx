@@ -21,18 +21,21 @@ const Form = () => {
       onChange={handleSearch}
       className="p-5 flex flex-col pt-10 gap-5 sm:flex-row justify-center dark:text-white"
     >
-      <div className="bg-teal-300 dark:bg-cyan-800 dark:shadow-cyan-800 flex  w-full gap-2 items-center max-w-[600px] p-2 rounded-lg shadow-lg shadow-teal-200 pl-6">
+      <div className="bg-indigo-400 dark:bg-cyan-800 dark:shadow-cyan-800 flex  w-full gap-2 items-center max-w-[600px] p-2 rounded-lg shadow-md shadow-indigo-400 pl-6">
         <FaSearch className="text-xl" />
         <input
-          {...register("country")}
+          {...register("country",{
+          
+          })}
           type="text"
+          autoComplete="off"
           className="bg-transparent outline-none w-full "
         />
       </div>
       <select
         {...register("region")}
         id=""
-        className="bg-teal-300 dark:bg-cyan-800 dark:shadow-cyan-800 w-max p-2 rounded-lg shadow-lg shadow-teal-200 "
+        className="bg-indigo-400 dark:bg-cyan-800 dark:shadow-cyan-800 w-max p-2 rounded-lg shadow-md shadow-indigo-400 "
       >
         <option value="">All Countries</option>
         <option value="Ame">America</option>

@@ -8,7 +8,7 @@ const CountryCard = ({ country }) => {
 
 
   return (
-    <Link to={`/${country.name.common}`} className="p-4 dark:bg-cyan-800 dark:text-white bg-slate-500 max-w-[320px] mx-auto rounded-xl hover:scale-[.9] transition-transform duration-500">
+    <Link to={`/${country.name.common}`} className="p-4 dark:bg-cyan-800 dark:text-white bg-indigo-400 max-w-[320px] mx-auto rounded-xl hover:scale-[.9] transition-transform duration-500">
      
         <img className="aspect-[2/1] w-full object-cover " src={country.flags.png} alt="" />
       

@@ -7,17 +7,20 @@ import {
 import CountryCard from "./UI/CountryCard";
 import { pagination } from "../utils/pagination";
 import SinglePage from "./UI/SinglePage";
+import Loading from "./UI/Loading";
 
 
 
 
 const CountriesList = () => {
   const dispatch = useDispatch();
-  const { countriesToShow, currentPage } = useSelector((store) => store.app);
-
+  const { countriesToShow, currentPage,isLoading } = useSelector((store) => store.app);
+  const {countryPerPage}=useSelector((store)=>store.configure)
+  console.log('nuevo render ');
   const { countriesByPage, arrayOfPages } = pagination(
     currentPage,
-    countriesToShow
+    countriesToShow,
+    countryPerPage
   );
 
   useEffect(() => {
@@ -46,6 +49,7 @@ const CountriesList = () => {
 
   return (
     <>
+       { isLoading&&<Loading/>}
       <div className="p-5 grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-5">
         {countriesByPage.map((country) => {
           return <CountryCard key={country.name.common} country={country} />;

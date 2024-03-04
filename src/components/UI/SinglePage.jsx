@@ -11,7 +11,7 @@ const SinglePage = ({page}) => {
  }
 
   return (
-    <div onClick={()=>handleChangeCurrentPage(page)} className={`${currentPage===page? 'bg-teal-300 shadow-xl shadow-teal-300 dark:bg-cyan-600 dark:shadow-sm dark:text-white ' : 'bg-slate-300'} aspect-square w-[30px] md:w-[40px] rounded-lg grid place-items-center cursor-pointer md:text-lg `}>{page}</div>
+    <div onClick={()=>handleChangeCurrentPage(page)} className={`${currentPage===page? 'bg-indigo-400 shadow-xl dark:bg-cyan-600 dark:shadow-sm dark:text-white ' : 'bg-slate-300'} aspect-square w-[30px] md:w-[40px] rounded-lg grid place-items-center cursor-pointer md:text-lg `}>{page}</div>
   )
 }
 

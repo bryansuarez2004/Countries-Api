@@ -6,13 +6,17 @@ const getInitialDarkMode = () => {
     return storedValue ? JSON.parse(storedValue) : false; // Si hay algo en localStorage, úsalo; de lo contrario, usa un valor predeterminado.
   };
 
-
+  const getInitialCountryPerPage = () => {
+    const storedValue = localStorage.getItem('countryPerPage');
+    return storedValue ? JSON.parse(storedValue) : 20; // Si hay algo en localStorage, úsalo; de lo contrario, usa un valor predeterminado.
+  };
 
 const configure = createSlice({
     name:'configure',
     initialState:{
         modeConfigure: false,
         darkMode: getInitialDarkMode(),
+        countryPerPage:getInitialCountryPerPage()
        
     },
     reducers:{
@@ -24,12 +28,15 @@ const configure = createSlice({
        },
        darkModeOff:(state)=>{
         state.darkMode = false
-}
+},
+      setCountryPerPage : (state,action)=>{
+         state.countryPerPage = action.payload
+      }
     }
 })
 
 
 
-export const {changeModeConfigure,darkModeOn,darkModeOff} = configure.actions
+export const {changeModeConfigure,darkModeOn,darkModeOff,setCountryPerPage} = configure.actions
 
 export default configure.reducer

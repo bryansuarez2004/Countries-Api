@@ -27,5 +27,17 @@ function getLanguagesText (objectToConcat) {
   return textLang
 }
 
+
+function transformObjectToArray (objectToArray){
+     let arrayOfLanguages = []
+     if(objectToArray){
+      for (const key in objectToArray) {
+         arrayOfLanguages.push(objectToArray[key])
+      }
+   }
+   return arrayOfLanguages
+}
+
 export {getCapitalText,
-   getLanguagesText}
+   getLanguagesText,
+   transformObjectToArray}

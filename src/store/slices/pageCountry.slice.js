@@ -8,7 +8,8 @@ const pageCountry = createSlice({
             countriesSugerencies : {
                 byRegion:[],
                 byLanguage:[]
-            }
+            },
+            isLoading:false
 
     },
     reducers:{
@@ -22,17 +23,24 @@ const pageCountry = createSlice({
         setSugerenciesByLanguage: (state,action)=>{
             state.countriesSugerencies.byLanguage = action.payload
             
-        }
+        },
+        isLoadingTrue:(state)=>{
+            state.isLoading = true
+     },
+     isLoadingFalse:(state)=>{
+      state.isLoading = false
+}
     }
 
 
 })
 
-export const {setCountry,setSugerenciesByRegion,setSugerenciesByLanguage} = pageCountry.actions
+export const {setCountry,setSugerenciesByRegion,setSugerenciesByLanguage,isLoadingTrue,isLoadingFalse} = pageCountry.actions
 
 export default pageCountry.reducer
 
 export const getCountryByName = (name)=> (dispatch)=>{
+    dispatch(isLoadingTrue())
     axios.get(`https://restcountries.com/v3.1/name/${name}?fullText=true`)
     .then(({ data }) => {
        console.log(data);
@@ -47,6 +55,7 @@ export const getSugerenciesByRegion = (region)=> (dispatch)=>{
     axios.get(`https://restcountries.com/v3.1/region/${region}`)
     .then(({ data }) => {
         dispatch(setSugerenciesByRegion(data))
+        dispatch(isLoadingFalse())
      })
      .catch((err) => console.log(err));
 }
