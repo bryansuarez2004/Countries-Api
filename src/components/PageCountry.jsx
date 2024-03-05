@@ -58,7 +58,7 @@ useEffect(()=>{
     <>
        {isLoading && <Loading/>}
       <div className=" flex flex-col items-center p-5 mt-8 lg:flex-row justify-around gap-2 dark:text-white ">
-      <Link to={"/"} className="absolute right-[20px] top-[90px] "><div className="flex   gap-2 justify-center items-center dark:bg-cyan-700 p-3 rounded-md bg-teal-500">
+      <Link to={"/"} className="absolute right-[20px] top-[90px] "><div className="flex   gap-2 justify-center items-center dark:bg-cyan-700 p-3 rounded-md bg-teal-300">
       <FaArrowLeftLong /> Back </div></Link>
         <img
           className="aspect-[2/1] w-full object-cover max-w-[450px]"
